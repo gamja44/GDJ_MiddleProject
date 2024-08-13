@@ -17,4 +17,10 @@ public class MemberController {
 		return "/member/join";
 	}
 	
+	@RequestMapping(value="/login", method=RequestMethod.GET)
+	public String login() {
+		System.out.println("login실행");
+		return "/member/login";
+	}
+	
 }
