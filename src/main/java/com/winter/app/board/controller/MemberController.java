@@ -23,4 +23,9 @@ public class MemberController {
 		return "/member/login";
 	}
 	
+	@RequestMapping(value="/logout", method=RequestMethod.GET)
+	public String logout() {
+		System.out.println("logout실행");
+		return "/index";
+	}
 }
