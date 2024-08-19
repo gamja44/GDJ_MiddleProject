@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <mapper namespace="com.winter.app.members.MemberDAO">
+  	<insert id="addFile" parameterType="MemberFileDTO">
+  		INSERT INTO MEMBERFILES 
+  		VALUES (FILES_SEQ.NEXTVAL, #{userName}, #{fileName}, #{oriName})
+  	</insert>
+  
+  	<insert id="join" parameterType="MemberDTO">
+  		INSERT INTO MEMBER(USERNAME, PASSWORD, NAME, EMAIL, PHONE, ADDRESS )
+  		VALUES (#{userName}, #{password}, #{name}, #{email}, #{phone}, #{address})
+  	</insert>
+  	
+  	<select id="login" parameterType="MemberDTO" resultType="MemberDTO">
+  		SELECT USERNAME, PASSWORD, NAME  
+  		FROM MEMBER  
+  		WHERE USERNAME=#{userName}
+  	</select>
+  	
+  	<select id="detail" parameterType="MemberDTO" resultMap="loginResult">
+  		SELECT M.*, A.*, MF.*
+  		FROM MEMBER M
+  			 LEFT JOIN
+  			 ACCOUNT A
+  			 ON M.USERNAME = A.USERNAME
+		 	 LEFT JOIN
+		 	 MEMBERFILES MF
+		 	 ON M.USERNAME = MF.USERNAME   			 
+  		WHERE M.USERNAME=#{userName}
+  	</select>
+  	
+  	<resultMap type="MemberDTO" id="loginResult">
+  		<!--  primary key 용도 -->
+  		<!-- Column="컬럼명" property="setter의 이름" -->
+  		<id column="USERNAME" property="userName"/>
+  		<result column="PASSWORD" property="password"/>
+  		<result column="NAME" property="name"/>
+  		<result column="EMAIL" property="email"/>
+  		<result column="PHONE" property="phone"/>
+  		<result column="ADDRESS" property="address"/>
+  		<!-- 1:1  -->
+  		<association property="memberFileDTO" javaType="MemberFileDTO">
+  			<id column="FILENUM" property="fileNum"/>
+  			<result column="FILENAME" property="fileName"/>
+  			<result column="ORINAME" property="oriName"/>
+  		</association>
+  		
+  		<!-- 1: N -->
+  		<collection property="dtos" javaType="java.util.List" ofType="AccountDTO">
+  			<id column="ACCOUNTNUMBER" property="accountNumber" />
+  			<result column="BOOKNUMBER" property="bookNumber"/>
+  			<result column="ACCOUNTDATE" property="accountDate"/>
+  			<result column="ACCOUNTBALANCE" property="accountBalance"/>
+  		</collection>
+  		
+  		
+  	
+  	</resultMap>
+  	
+  	
+  	<update id="update" parameterType="MemberDTO">
+  		UPDATE MEMBER SET 
+  			NAME=#{name}, PHONE=#{phone}, ADDRESS =#{address}, EMAIL=#{email}
+		WHERE USERNAME =#{userName}
+  	</update>
+  	
+  	<delete id="delete" parameterType="MemberDTO">
+  		DELETE MEMBER WHERE USERNAME=#{userName}
+  	</delete>
+  	
+  </mapper>

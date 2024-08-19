@@ -22,21 +22,11 @@
        
     </head>
     <body>
-    	 <header class="masthead"  style="background-image: url('resources/assets/img/home-bg.jpg')">
-            <div class="container position-relative px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-md-10 col-lg-8 col-xl-7">
-                        <div class="site-heading">
-                            <h1>Notice Board</h1>
-                            <span class="subheading"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
+    	<br>
+    	<br>
         <!-- Main Content-->
  
-         <div class="container">
+         <div class="container" style="text-align:center;">
 
         <div class="card o-hidden border-0 shadow-lg my-5">
             <div class="card-body p-0">
@@ -46,7 +36,7 @@
                     <div class="col-lg-7">
                         <div class="p-5">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                                <h1 class="h4 text-gray-900 mb-4"><a href="/" >Notice Board</a></h1>
                             </div>
                             <form class="user">
                                 <div class="form-group">
