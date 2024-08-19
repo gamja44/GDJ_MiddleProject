@@ -16,7 +16,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="resources/css/styles.css" rel="stylesheet" />
+        <link href="/resources/css/styles.css" rel="stylesheet" />
         <c:import url="/WEB-INF/views/template/nav.jsp"></c:import>
     	
     </head>
@@ -38,29 +38,21 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4"><a href="/" >Notice Board</a></h1>
                             </div>
-                            <form class="user">
+                            <form class="user" id="contactForm" action="login" method="post">
+                            <!-- Name input-->
                                 <div class="form-group">
-                                        <input type="text" class="form-control form-control-user "
-                                            id="id" placeholder="id" style="border-radius: 20px">
+                                        <input type="text" class="form-control form-control-user " name="memberId"
+                                            id="id" placeholder="id" style="border-radius: 20px" required>
                                 </div>
                                 <br>
                                 <div class="form-group">
-                                        <input type="password" class="form-control form-control-user "
-                                            id="password" placeholder="Password" style="border-radius: 20px">
+                                        <input type="password" class="form-control form-control-user " name="memberPw"
+                                            id="password" placeholder="Password" style="border-radius: 20px" required>
                                 </div>
                                 <br>
                            
                                 <br>
-                                <a href="login.html" class="btn btn-primary btn-user btn-center" style=" border-radius: 20px">
-                                    Register Account
-                                </a>
-                                <hr>
-                                 <a href="#" class="btn btn-google btn-user btn-block" >
-                                  <i class="fab fa-google fa-fw"></i> Register with Google
-                                </a>
-                                 <a href="#" class="btn btn-facebook btn-user btn-block">
-                                  <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook 
-                                </a>
+                                <div class="d-grid"><button style=" border-radius: 20px" class="btn btn-primary btn-user btn-center" id="btn" type="submit">로그인</button></div>
                             </form>
                             <hr>
                             <div class="text-center">

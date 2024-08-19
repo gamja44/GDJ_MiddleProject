@@ -12,9 +12,18 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/login">로그인</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/join">회원가입</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.html">고객센터</a></li>
+                    
+                 <c:choose>
+         			<c:when test="${member ne null}">
+         				<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/member/mypage">${member.memberId}님</a></li>
+           				<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/member/logout">로그아웃</a></li>
+         			</c:when>
+         			<c:otherwise>
+          				<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/member/login">로그인</a></li>
+           				<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/member/join">회원가입</a></li>
+         		</c:otherwise>
+         		</c:choose>
+                		<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/notice/customers" target="_blank">고객센터</a></li>
                     </ul>
                 </div>
             </div>

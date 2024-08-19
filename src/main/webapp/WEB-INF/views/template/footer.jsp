@@ -4,8 +4,8 @@
        <!-- Footer-->
         <footer class="border-top">
        
-			<div class="container px-5">
-				<div class="row align-items-center justify-content-between flex-column flex-sm-row">
+			<div class="container px-5 small text-center text-muted content-center">
+				<div>
 					
 					<div class="col-auto">
 						<a class="small m-0 text-center text-muted" href="#!"><small>이용안내 </small></a>

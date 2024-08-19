@@ -4,23 +4,19 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
   <mapper namespace="com.winter.app.members.MemberDAO">
-  	<insert id="addFile" parameterType="MemberFileDTO">
-  		INSERT INTO MEMBERFILES 
-  		VALUES (FILES_SEQ.NEXTVAL, #{userName}, #{fileName}, #{oriName})
-  	</insert>
-  
+  	 
   	<insert id="join" parameterType="MemberDTO">
-  		INSERT INTO MEMBER(USERNAME, PASSWORD, NAME, EMAIL, PHONE, ADDRESS )
-  		VALUES (#{userName}, #{password}, #{name}, #{email}, #{phone}, #{address})
+  		INSERT INTO MEMBER(MEMBERID, MEMBERPW, MEMBERNAME, MEMBERMAIL, MEMBERTELL)
+  		VALUES (#{memberId}, #{memberPw}, #{memberName}, #{memberMail}, #{memberTell})
   	</insert>
   	
   	<select id="login" parameterType="MemberDTO" resultType="MemberDTO">
-  		SELECT USERNAME, PASSWORD, NAME  
+  		SELECT MEMBERID, MEMBERPW, MEMBERNAME  
   		FROM MEMBER  
-  		WHERE USERNAME=#{userName}
+  		WHERE MEMBERID=#{memberId}
   	</select>
   	
-  	<select id="detail" parameterType="MemberDTO" resultMap="loginResult">
+  <!--  	<select id="detail" parameterType="MemberDTO" resultMap="loginResult">
   		SELECT M.*, A.*, MF.*
   		FROM MEMBER M
   			 LEFT JOIN
@@ -30,25 +26,24 @@
 		 	 MEMBERFILES MF
 		 	 ON M.USERNAME = MF.USERNAME   			 
   		WHERE M.USERNAME=#{userName}
-  	</select>
+  	</select>  -->
   	
-  	<resultMap type="MemberDTO" id="loginResult">
-  		<!--  primary key 용도 -->
-  		<!-- Column="컬럼명" property="setter의 이름" -->
+  <!-- 	<resultMap type="MemberDTO" id="loginResult">
+  		 primary key 용도
+  		Column="컬럼명" property="setter의 이름"
   		<id column="USERNAME" property="userName"/>
   		<result column="PASSWORD" property="password"/>
   		<result column="NAME" property="name"/>
   		<result column="EMAIL" property="email"/>
   		<result column="PHONE" property="phone"/>
-  		<result column="ADDRESS" property="address"/>
-  		<!-- 1:1  -->
+  		1:1 
   		<association property="memberFileDTO" javaType="MemberFileDTO">
   			<id column="FILENUM" property="fileNum"/>
   			<result column="FILENAME" property="fileName"/>
   			<result column="ORINAME" property="oriName"/>
   		</association>
   		
-  		<!-- 1: N -->
+  		1: N
   		<collection property="dtos" javaType="java.util.List" ofType="AccountDTO">
   			<id column="ACCOUNTNUMBER" property="accountNumber" />
   			<result column="BOOKNUMBER" property="bookNumber"/>
@@ -58,17 +53,17 @@
   		
   		
   	
-  	</resultMap>
+  	</resultMap> -->
   	
   	
-  	<update id="update" parameterType="MemberDTO">
+   	<update id="update" parameterType="MemberDTO">
   		UPDATE MEMBER SET 
-  			NAME=#{name}, PHONE=#{phone}, ADDRESS =#{address}, EMAIL=#{email}
-		WHERE USERNAME =#{userName}
+  			MEMBERNAME=#{memberName}, MEMBERMAIL=#{memberMail}, MEMBERTELL=#{memberTell}
+		WHERE MEMBERID=#{memberId}
   	</update>
   	
   	<delete id="delete" parameterType="MemberDTO">
-  		DELETE MEMBER WHERE USERNAME=#{userName}
-  	</delete>
+  		DELETE MEMBER WHERE MEMBERID=#{memberId}
+  	</delete> 
   	
   </mapper>
