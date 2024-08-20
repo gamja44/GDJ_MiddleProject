@@ -58,9 +58,6 @@
                             <div class="text-center">
                                 <a class="small btn btn-facebook btn-user btn-block" href="forgot-password.html">Forgot Password?</a>
                             </div>
-                            <div class="text-center">
-                                <a class="small btn btn-facebook btn-user btn-block" href="login.html">Already have an account? Login!</a>
-                            </div>
                         </div>
                     </div>
                 </div>
