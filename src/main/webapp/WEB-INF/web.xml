@@ -45,6 +45,7 @@
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+
 	 <filter>
     <display-name>LoginFilter</display-name>
     <filter-name>LoginFilter</filter-name>

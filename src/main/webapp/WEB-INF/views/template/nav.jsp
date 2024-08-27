@@ -23,7 +23,7 @@
            				<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/member/join">회원가입</a></li>
          		</c:otherwise>
          		</c:choose>
-                		<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/notice/customers" target="_blank">고객센터</a></li>
+                		<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/notice/list" target="_blank">고객센터</a></li>
                     </ul>
                 </div>
             </div>

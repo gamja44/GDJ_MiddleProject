@@ -6,7 +6,7 @@
 	<typeAliases>
 		
 		<typeAlias type="com.winter.app.members.MemberDTO" alias="MemberDTO"/>
-		
+		<typeAlias type="com.winter.app.notices.NoticeDTO" alias="NoticeDTO"/>
 				
 <!--  		<typeAlias type="com.winter.app.accounts.TradeDTO" alias="TradeDTO"/>
 		<typeAlias type="com.winter.app.accounts.ListOption" alias="ListOption"/>

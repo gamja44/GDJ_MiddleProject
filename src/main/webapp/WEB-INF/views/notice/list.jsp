@@ -52,7 +52,7 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item active">
-                <a class="nav-link" href="customers?#">
+                <a class="nav-link" href="/notice/list">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Notice</span></a>
             </li>
@@ -186,42 +186,25 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th scope="col">번호</th>
+                                            <th scope="col">제목</th>
+                                            <th scope="col">내용</th>
+                                            <th scope="col">날짜</th>
+                                            <th scope="col">조회수</th>
+                                            <th scope="col">작성자</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                        </tr>
-                                    </tfoot>
                                     <tbody>
+                                    	<c:forEach items="${list}" var="list">                                		
                                         <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
+                                            <th scope="row">${list.boardNum}</th>
+                                            <td><a href="detail?boardNum=${list.boardNum}">${list.boardTitle}</td>
+                                            <td>${list.contents}</td>
+                                            <td>${list.createDate}</td>
+                                            <td>${list.boardHit}</td>
+                                            <td>${list.memberId}</td>
                                         </tr>
-                                        <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>63</td>
-                                            <td>2011/07/25</td>
-                                            <td>$170,750</td>
-                                        </tr>
-                                   
+                                        </c:forEach>
                                     </tbody>
                                 </table>
                             </div>

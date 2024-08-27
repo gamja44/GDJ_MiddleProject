@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <mapper namespace="com.winter.app.notices.NoticeDAO">
+  	 
+<!--   	<insert id="join" parameterType="MemberDTO">
+  		INSERT INTO MEMBER(MEMBERID, MEMBERPW, MEMBERNAME, MEMBERMAIL, MEMBERTELL)
+  		VALUES (#{memberId}, #{memberPw}, #{memberName}, #{memberMail}, #{memberTell})
+  	</insert> -->
+  	
+  	<!-- <select id="list" resultType="NoticeDTO" parameterType="Pager">
+	  		SELECT * 
+	  		FROM (	
+	  			SELECT ROWNUM r, n.*
+				FROM(SELECT *
+					FROM NOTICE
+					
+					<choose>
+						<when test="order == 1">
+							ORDER BY CREATEDATE
+							DESC
+						</when>
+						<when test="order == 2">
+							ORDER BY BOARDHIT
+							DESC
+						</when>
+						<otherwise >
+							ORDER BY BOARDNUM
+							DESC
+						</otherwise>
+					</choose>
+					) n
+				)
+			WHERE r 
+			BETWEEN #{startRow} AND #{lastRow}		
+	  	
+	  </select> -->
+	  
+	  <select id="list" resultType="NoticeDTO">
+	  	SELECT * FROM NOTICE
+	  </select>
+	  
+	  <select id="detail" parameterType="NoticeDTO" resultType="NoticeDTO">
+  		SELECT *
+  		FROM NOTICE 
+  		WHERE BOARDNUM=#{boardNum}
+	</select>  
+  	<!-- 조인할때사용 -->
+  	<!-- <resultMap type="NoticeDTO" id="detailResult">
+  		<id column="BOARDNUM" property="boardNum"/>
+  		<result column="BOARDTITLE" property="boardTitle"/>
+  		<result column="CONTENTS" property="contents"/>
+  		<result column="CREATEDATE" property="createDate"/>
+  		<result column="BOARDHIT" property="boardHit"/>
+  		<result column="MEMBERID" property="memberId"/>
+  	</resultMap>	 -->
+  	
+  	<delete id="delete" parameterType="NoticeDTO">
+  		DELETE  NOTICE WHERE BOARDNUM=#{boardNum}
+  	</delete>
+  	
+  	
+
+  </mapper>

@@ -26,7 +26,7 @@ public class MemberController {
 	//requestMapping의 value속성은 "웹주소"를 가리킴
 	@RequestMapping(value="join", method=RequestMethod.GET)
 	public void join() throws Exception {
-		System.out.println("get가입 컨트롤러");
+		System.out.println("join가입 컨트롤러");
 	}
 	
 	@RequestMapping(value="join", method=RequestMethod.POST)
