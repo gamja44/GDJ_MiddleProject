@@ -20,8 +20,14 @@ public class NoticeService {
 	}
 	
 	public NoticeDTO detail(NoticeDTO noticeDTO) throws Exception {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stubs
+		System.out.println("상세서비스실행");
 		return noticeDAO.detail(noticeDTO);
+	}
+	
+	public int update(NoticeDTO noticeDTO) throws Exception {
+		System.out.println("수정서비스실행");
+		return noticeDAO.update(noticeDTO);
 	}
 	
 	public int delete(NoticeDTO noticeDTO) throws Exception {

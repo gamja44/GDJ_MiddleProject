@@ -61,6 +61,11 @@
   		DELETE  NOTICE WHERE BOARDNUM=#{boardNum}
   	</delete>
   	
+  	<update id="update" parameterType="NoticeDTO">
+  		UPDATE NOTICE SET BOARDTITLE=#{boardTitle}, CONTENTS=#{contents}
+  		WHERE BOARDNUM=#{boardNum}
+  	</update>  
+  	
   	
 
   </mapper>

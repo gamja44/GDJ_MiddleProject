@@ -54,6 +54,21 @@ public class NoticeContoller {
 		return "/commons/message";
 	}
 	
+	@GetMapping("/notice/form")
+	public String update(NoticeDTO noticeDTO, Model model) throws Exception {
+		noticeDTO = noticeService.detail(noticeDTO);
+		model.addAttribute("noticeDTO", noticeDTO);
+		return "/notice/form";
+	}
+	
+	
+	@PostMapping("/notice/form")
+	public String update(NoticeDTO noticeDTO) throws Exception {
+		int result = noticeService.update(noticeDTO);		
+		return "redirect:./detail?boardNum=" + noticeDTO.getBoardNum();
+
+	}
+	
 	/*
 	 * @RequestMapping(value="/notice/list", method=RequestMethod.GET) public String
 	 * list(Pager pager, Model model) throws Exception {

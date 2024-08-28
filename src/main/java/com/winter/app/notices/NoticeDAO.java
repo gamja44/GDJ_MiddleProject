@@ -30,6 +30,11 @@ public class NoticeDAO {
 		return sqlSession.delete(NAMESPACE + "delete", noticeDTO);
 	}
 	
+	public int update(NoticeDTO noticeDTO) throws Exception {
+		System.out.println("수정dao실행");
+		return sqlSession.update(NAMESPACE + "update", noticeDTO);
+	}
+	
 	/*
 	 * public List<NoticeDTO> list(Pager pager) throws Exception { return
 	 * sqlSession.selectList(NAMESPACE + "list", pager); }

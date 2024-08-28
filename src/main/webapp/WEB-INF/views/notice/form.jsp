@@ -172,85 +172,73 @@
 
                 </nav>
                 <!-- End of Topbar -->
-                
-                <!-- 리스트 start -->
-					<div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
-                    	<div class="card-body p-0">
-                    	
-                    		<div class="align-items-center justify-content-center">
-                    			<div class="p-5">
-				                    <div class="row gx-5 justify-content-center">
-				                        <div class="col-lg-11 col-xl-11 col-xxl-11">
-											<table class="table table-hover">
-											  <thead>
-											    <tr>
-											       <th scope="col">번호</th>
-		                                            <th scope="col">제목</th>                     
-		                                            <th scope="col">날짜</th>
-		                                            <th scope="col">조회수</th>
-		                                            <th scope="col">작성자</th>
-											    </tr>
-											    
-											  </thead>
-											  <tbody>
-												   <tr>
-													    <th scope="row">${noticeDTO.boardNum}</th>
-			                                            <td>${noticeDTO.boardTitle}</td>
-			                                            <td>${noticeDTO.createDate}</td>
-			                                            <td>${noticeDTO.boardHit}</td>
-			                                            <td>${noticeDTO.memberId}</td>
-													</tr>
-												   
-											  </tbody>
-											  <table>
-											  	<colgroup>
-											  		<col width="100%" />
-											  	</colgroup>
-											    <tr>
-											    <br>										
-											  	<td>${noticeDTO.contents}</td>
-												</tr>
-											  </table>
-											</table>
-											
-											<%-- <div>
-												<c:forEach items="${boardDTO.boardFileDTOs}" var="f">
-													<a href="./fileDown?fileNum=${f.fileNum}">${f.oriName}</a>
-												</c:forEach>
-											</div> --%>
+               
+					
+						<section class="py-5">
+                <div class="container px-5">
+                    <div class="bg-light rounded-4 py-5 px-4 px-md-5">
+                        <div class="text-center mb-5">
+                        	<h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">
+	                        	<%-- <c:if test="${dto eq null}">
+	                        		${board} 추가
+	                        	</c:if>
+	                        	<c:if test="${dto ne null}">
+	                        		${board} 수정
+	                        	</c:if> --%>
+                        	</span></h1>
+                    	</div>
+                        <div class="row gx-5 justify-content-center">
+                            <div class="col-lg-8 col-xl-6">
+                                <form action="/notice/form" method="post" enctype="multipart/form-data">
+	                                    <!-- 제목 입력-->
+	                                    <div class="form-floating mb-3">
+	                                    	<label for="boardTitle">제목</label>
+	                                        <input class="form-control" value="${noticeDTO.boardTitle}" name="boardTitle" id="boardTitle" type="text"/>
+	                                        
+	                                    </div>
+	                                    <!-- 설명 입력 --> 
+	                                   	<div class="form-floating mb-3">
+	                                   		<label for="contents">내용</label>
+	                                        <textarea class="form-control" name="contents" id="contents" type="text" style="height: 10rem">${noticeDTO.contents}</textarea>
+	                                        
+	                                    </div>
+                                    
+                                    <!-- <div class="row py-2 align-items-center justify-content-end">
+                                     	<div class="col-auto">
+                                    		<button type="button" id="add" class="btn btn-outline-primary">
+												<h6 class="display-10 fw-bolder mb-0">
+												파일 추가
+												</h6>
+											</button>
 										</div>
-										<c:if test="${member.memberId eq noticeDTO.memberId}">
-										<br>
-				                    		<div class="row px-2 py-2 align-items-center justify-content-end">
-						                        <div class="col-auto">
-													<form action="/notice/form" method="get">
-													<input type="hidden" name="boardNum" value="${noticeDTO.boardNum}">
+									</div> -->
+									
+									<div id="result"></div>
+                                    <!-- Submit Button-->
+                                    <div class="row py-2 align-items-center justify-content-end">
+                                     	<div class="col-auto">
+                                    		
+												 <c:if test="${noticeDTO eq null}">
 													<button type="submit" class="btn btn-outline-primary">
-														<h6 class="display-10 fw-bolder mb-0">글수정</h1>
+														<h6 class="display-10 fw-bolder mb-0">등록</h6>
 													</button>
-						                        </form>
-												</div>
-											</div>
-											
-											<div class="row px-2 py-2 align-items-center justify-content-end">
-						                        <div class="col-auto">
-						                        <form action="/notice/delete" method="post">
-						                        <input type="hidden" name="boardNum" value="${noticeDTO.boardNum}">
-													<button type="submit" class="btn btn-outline-primary">
-														<h6 class="display-10 fw-bolder mb-0">삭제</h1>
-													</button>
-						                        </form>
-												</div>
-											</div>
-										</c:if>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- 리스트 end -->
-					
-					
+												</c:if>
+												<c:if test="${noticeDTO ne null}">
+													<form action="/notice/form" method="post">
+												 	<input type="hidden" name="boardNum" value="${noticeDTO.boardNum}">
+															<button type="submit" class="btn btn-outline-primary">
+															<h6 class="display-10 fw-bolder mb-0">등록</h6>
+														</button>
+													</form>>
+												</c:if>
+                                    	</div>
+								  	</div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
                 
                 
                 
