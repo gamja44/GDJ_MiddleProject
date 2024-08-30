@@ -66,6 +66,10 @@
   		WHERE BOARDNUM=#{boardNum}
   	</update>  
   	
+  	<insert id="add" parameterType="NoticeDTO">
+  		INSERT INTO NOTICE (BOARDNUM,  BOARDTITLE, CONTENTS, MEMBERID)
+  		VALUES (NOTICE_SEQ.NEXTVAL, #{boardTitle}, #{contents}, #{memberId})
+  	</insert>
   	
 
   </mapper>

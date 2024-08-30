@@ -34,7 +34,11 @@ public class NoticeService {
 		System.out.println("삭제서비스실행");
 		return noticeDAO.delete(noticeDTO);
 	}
-
+	
+	public int add(NoticeDTO noticeDTO) throws Exception {
+		System.out.println("글쓰기서비스실행");
+		return noticeDAO.add(noticeDTO);
+	}
 	
 //	public List<NoticeDTO> list(Pager pager) throws Exception{
 //		pager.makeRow();

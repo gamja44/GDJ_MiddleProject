@@ -172,75 +172,78 @@
 
                 </nav>
                 <!-- End of Topbar -->
-
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
-
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">번호</th>
-                                            <th scope="col">제목</th>
-                                            <th scope="col">내용</th>
-                                            <th scope="col">날짜</th>
-                                            <th scope="col">조회수</th>
-                                            <th scope="col">작성자</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    	<c:forEach items="${list}" var="list">                                		
-                                        <tr>
-                                            <th scope="row">${list.boardNum}</th>
-                                            <td><a href="detail?boardNum=${list.boardNum}">${list.boardTitle}</td>
-                                            <td>${list.contents}</td>
-                                            <td>${list.createDate}</td>
-                                            <td>${list.boardHit}</td>
-                                            <td>${list.memberId}</td>
-                                        </tr>
-                                        </c:forEach>
-                                    </tbody>
-                                </table>
-                                
-                                 <c:choose>
-				         			<c:when test="${member ne null}">
-				         				<div class="col-auto" style="text-align: center" >
-											<form action="add" method="get">
-											<input type="hidden" name="boardNum" value="${noticeDTO.boardNum}">
-											<button type="submit" class="btn btn-outline-primary">
-												<h6 class="display-10 fw-bolder mb-0">글작성</h1>
+               
+					
+						<section class="py-5">
+                <div class="container px-5">
+                    <div class="bg-light rounded-4 py-5 px-4 px-md-5">
+                        <div class="text-center mb-5">
+                        	<h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">
+	                        	<%-- <c:if test="${dto eq null}">
+	                        		${board} 추가
+	                        	</c:if>
+	                        	<c:if test="${dto ne null}">
+	                        		${board} 수정
+	                        	</c:if> --%>
+                        	</span></h1>
+                    	</div>
+                        <div class="row gx-5 justify-content-center">
+                            <div class="col-lg-8 col-xl-6">
+                                <form action="/notice/add" method="post" enctype="multipart/form-data">
+	                                    <!-- 제목 입력-->
+	                                    <div class="form-floating mb-3">
+	                                    	<label for="boardTitle">제목</label>
+	                                        <input class="form-control" value="${noticeDTO.boardTitle}" name="boardTitle" id="boardTitle" type="text"/>
+	                                        
+	                                    </div>
+	                                    <!-- 설명 입력 --> 
+	                                   	<div class="form-floating mb-3">
+	                                   		<label for="contents">내용</label>
+	                                        <textarea class="form-control" name="contents" id="contents" type="text" style="height: 10rem">${contents}</textarea>
+	                                        
+	                                    </div>
+                                    
+                                    <!-- <div class="row py-2 align-items-center justify-content-end">
+                                     	<div class="col-auto">
+                                    		<button type="button" id="add" class="btn btn-outline-primary">
+												<h6 class="display-10 fw-bolder mb-0">
+												파일 추가
+												</h6>
 											</button>
-			                        		</form>
 										</div>
-                                
-				         			</c:when>
-				         			<c:otherwise>
-				          				
-				         		</c:otherwise>
-				         		</c:choose>
-                                
-	                            
-                                <div class="row px-2 py-2 align-items-center justify-content-end">
-				  				</div>        
+									</div> -->
+									
+									<div id="result"></div>
+                                    <!-- Submit Button-->
+                                    <div class="row py-2 align-items-center justify-content-end">
+                                     	<div class="col-auto">
+                                    	
+												
+													
+												 	<input type="hidden" name="memberId" value="${sessionScope.member.memberId}" >
+															<button type="submit" class="btn btn-outline-primary">
+															<h6 class="display-10 fw-bolder mb-0">등록</h6>
+														</button>
+													
+
+                                    	</div>
+								  	</div>
+                                </form>
                             </div>
                         </div>
                     </div>
-					
-					
-					
-               
-                <!-- /.container-fluid -->
-
-            </div>
-            <!-- End of Main Content -->
-
-            <!-- 하단 footer, js start -->
+                </div>
+            </section>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                        <!-- 하단 footer, js start -->
 				<c:import url="/WEB-INF/views/template/footer.jsp"></c:import>
 			<!-- 하단 footer, js end -->
             <!-- End of Footer -->

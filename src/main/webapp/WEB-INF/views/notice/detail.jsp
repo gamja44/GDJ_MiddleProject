@@ -223,7 +223,7 @@
 										<br>
 				                    		<div class="row px-2 py-2 align-items-center justify-content-end">
 						                        <div class="col-auto">
-													<form action="/notice/form" method="get">
+													<form action="/notice/update" method="get">
 													<input type="hidden" name="boardNum" value="${noticeDTO.boardNum}">
 													<button type="submit" class="btn btn-outline-primary">
 														<h6 class="display-10 fw-bolder mb-0">글수정</h1>

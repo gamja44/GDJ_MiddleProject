@@ -35,6 +35,12 @@ public class NoticeDAO {
 		return sqlSession.update(NAMESPACE + "update", noticeDTO);
 	}
 	
+	public int add(NoticeDTO noticeDTO) throws Exception {
+		System.out.println("글쓰기dao실행");
+		return sqlSession.update(NAMESPACE + "add", noticeDTO);
+	}
+	
+	
 	/*
 	 * public List<NoticeDTO> list(Pager pager) throws Exception { return
 	 * sqlSession.selectList(NAMESPACE + "list", pager); }

@@ -3,6 +3,7 @@ package com.winter.app.notices;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.winter.app.util.Pager;
@@ -54,20 +56,36 @@ public class NoticeContoller {
 		return "/commons/message";
 	}
 	
-	@GetMapping("/notice/form")
+	@GetMapping("/notice/update")
 	public String update(NoticeDTO noticeDTO, Model model) throws Exception {
 		noticeDTO = noticeService.detail(noticeDTO);
 		model.addAttribute("noticeDTO", noticeDTO);
-		return "/notice/form";
+		return "/notice/update";
 	}
 	
 	
-	@PostMapping("/notice/form")
+	@PostMapping("/notice/update")
 	public String update(NoticeDTO noticeDTO) throws Exception {
 		int result = noticeService.update(noticeDTO);		
 		return "redirect:./detail?boardNum=" + noticeDTO.getBoardNum();
 
 	}
+	
+	@GetMapping("/notice/add")
+	public String add1(NoticeDTO noticeDTO,Model model) throws Exception {
+		System.out.println("add글쓰기 get 컨트롤러");
+		
+		return "/notice/add";
+	}
+	
+	@PostMapping("/notice/add")
+	public String add(NoticeDTO noticeDTO,Model model) throws Exception {
+		System.out.println("add글쓰기post컨트롤러실행");
+		int result = noticeService.add(noticeDTO);
+		return "redirect:./list";
+	}
+
+	
 	
 	/*
 	 * @RequestMapping(value="/notice/list", method=RequestMethod.GET) public String
