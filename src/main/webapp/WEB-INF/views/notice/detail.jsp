@@ -242,23 +242,64 @@
 						                        </form>
 												</div>
 											</div>
+											
+											<!-- 댓글 -->
+											<div>
+
+												<!--댓글 입력 모달창-->
+
+												<!-- Button trigger modal -->
+												
+												<div class="row px-2 py-2 align-items-center justify-content-end">
+							                        <div class="col-auto">
+														<button type="button" id="openModal" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#commentModal">
+															<h6 class="display-10 fw-bolder mb-0">댓글</h1>
+														</button>
+													</div>
+												</div>
+												
+												<!-- Modal -->
+												<div class="modal fade" id="commentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+													<div class="modal-dialog">
+														<div class="modal-content">
+															<div class="modal-header">
+																<h5 class="modal-title" id="exampleModalLabel">Comment</h5>
+																<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+															</div>
+															<div class="modal-body">
+																<div class="mb-3">
+																	<textarea class="form-control" id="commentContents" rows="3"></textarea>
+																</div>
+															</div>
+															<div class="modal-footer">
+																<button type="button" class="btn btn-secondary" id="commentClose" data-bs-dismiss="modal">Close</button>
+																<button type="button" class="btn btn-primary" data-id="#" id="commentButton">댓글등록</button>
+															</div>
+														</div>
+													</div>
+												</div>												
+
+												<!-- <textarea id="commentContents">
+
+												</textarea>
+
+												<button id="commentButton">댓글</button> -->
+
+												<!--댓글 목록-->
+												<div id="commentList">
+												</div>
+											</div>
+																					
 										</c:if>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
+					
+					
 					<!-- 리스트 end -->
-					
-					
-                
-                
-                
-                
-                
-                
-                
-                
+					             
                 
                         <!-- 하단 footer, js start -->
 				<c:import url="/WEB-INF/views/template/footer.jsp"></c:import>
